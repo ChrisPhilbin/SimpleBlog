@@ -1,0 +1,8 @@
+  <% @article.each do |article| %>
+    <div class="article-body">
+      <strong><%= article.title %></strong> <% if logged_in? %>[ <%= link_to 'edit', edit_article_path(article) %> ]
+     [  <%= link_to 'delete', article, method: :delete, data: { confirm: "You sure?" } %> ]<% end %><br>
+      <%= article.body %>
+    Posted in <strong><%= article.topic %></strong><br><br>
+    </div>
+  <% end %>

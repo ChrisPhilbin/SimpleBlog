@@ -1,0 +1,6 @@
+<% if logged_in? %>
+    <%= render 'submit' %>
+<% else %>
+    <h2>You must be logged in to submit a new article</h2>
+    <h2><%= link_to "Go to login", login_path %></h2>
+<% end %>
