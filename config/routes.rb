@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   resources :articles, param: :slug
   resources :users
+  resources :categories
   
   get    '/submit', to: 'articles#new'
   get    '/login',  to: 'sessions#new'

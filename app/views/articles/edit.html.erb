@@ -10,8 +10,8 @@
 <%= f.label :body %>
 <%= f.text_area :body %><br>
 
-<%= f.label :topic %>
-<%= f.select(:topic, options_for_select([['Rants', 'Rants'], ['Tech', 'Tech'], ['Cars', 'Cars']])) %><br>
+<%= f.label :topic %><br>
+<%= f.collection_select(:topic, Category.all, :topic, :topic, :prompt => "Select a category") %>
     
 <%= f.submit "Submit changes" %>
 

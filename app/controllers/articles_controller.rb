@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
     
     before_action :logged_in?, only: [:edit, :update, :destroy, :create]
-    
+
     def index
         if Article.count >= 1
             @article = Article.all.paginate(page: params[:page], per_page: 3)
@@ -28,14 +28,6 @@ class ArticlesController < ApplicationController
             render 'articles/edit'
         end
     end
-
-    def rants
-            @article = Article.where("topic = ?", "Rants").all
-    end
-    
-    def tech
-            @article = Article.where("topic = ?", "Tech").all
-    end
     
     def destroy
         Article.find_by_slug(params[:slug]).destroy
@@ -56,7 +48,7 @@ class ArticlesController < ApplicationController
     private
     
     def article_params
-        params.require(:article).permit(:title, :body, :topic)
+        params.require(:article).permit(:title, :body, :topic, :slug)
     end
     
 end

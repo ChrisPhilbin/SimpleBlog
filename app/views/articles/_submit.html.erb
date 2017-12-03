@@ -4,12 +4,17 @@
     <%= form.text_field :title %>
 </p>
 <p>
+    <%= form.label :slug %><br>
+    <%= form.text_field :slug %>
+</p>
+<p>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
 </p>
 <p>
     <%= form.label :topic %><br>
-    <%= form.select(:topic, options_for_select([['Rants', 'Rants'], ['Tech', 'Tech'], ['Cars', 'Cars']])) %>
+    <%= form.collection_select(:topic, Category.all, :topic, :topic, :prompt => "Select a category") %>
+
 </p>
 <p>
     <%= form.submit %>
